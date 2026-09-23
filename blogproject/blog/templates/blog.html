@@ -1,0 +1,27 @@
+<h1>My Blog Posts</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div>
+        <input type="text" name="title" placeholder="Blog Title" required>
+    </div>
+    <br>
+    <div>
+        <textarea name="content" placeholder="Blog content yahan likhein..." required></textarea>
+    </div>
+    <br>
+    <button type="submit">Post Publish Karein</button>
+</form>
+
+<hr>
+
+{% for post in posts %}
+    <div>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <small>Posted on: {{ post.on_time }}</small>
+
+        <hr>
+    </div>
+{% empty %}
+    <p>Abhi koi post nahi hai.</p>
+{% endfor %}

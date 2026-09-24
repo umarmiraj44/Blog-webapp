@@ -17,3 +17,10 @@ def post_list(request):
 
     posts = Post.objects.all()
     return render(request, 'blog.html', {'posts': posts})
+
+def postdelete(request,postid):
+    post=Post.objects.get(id=postid)
+    post.delete()
+    return redirect('postlist')
+
+    

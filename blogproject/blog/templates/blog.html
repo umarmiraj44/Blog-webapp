@@ -20,7 +20,9 @@
         <p>{{ post.content }}</p>
         <small>Posted on: {{ post.on_time }}</small>
 
-        <hr>
+        <br>
+        <a href="{% url 'postdelete' post.id %}">Delete</a>
+
     </div>
 {% empty %}
     <p>There is no post</p>
